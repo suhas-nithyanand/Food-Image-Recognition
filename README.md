@@ -23,14 +23,25 @@ Step2:
 I used rename.py to rename all the images with foodname + Image number counter for visual aid.
 
 Use this command to get all image names ( address on your machine) in a single text file.
+find `pwd`/{images diectory} -type f -exec echo {} \; > images.txt.
 This file will be used later an input to caffe_feature_extractor.py
-find `pwd`/{images diectory} -type f -exec echo {} \; > images.txt 
 
 Step3:
 
-Now we have to extract high level image features from googlenet model using caffe_feature_extractor.py
+Now extract high level image features from googlenet model using caffe_feature_extractor.py. 
+This python file takes input.txt (image addresses obtained from previous step) and 
+output.txt (empty text file where extracted image vectors will be stored) as arguments. 
 Change all the paths relative to your caffe installations.
 
 Step4:
-Now install opencv in system
+Now install Scikit learn python library in your system.
+Now we have separate the training and test dataset. 
+An important step here is to randomize the data, so that we have almost equal distributions of all classes in the test and training dataset.
+For my experiment, I have split my training and test data in the ratio 90:10. But you could experiment with other ratios.
 
+Step5:
+Although, I didn't spend a lot of time tuning the SVM constants, It's an important step to get good accuracy.
+Finally we can evaluate the prediction by comparing it with the output.
+Accuracy and F-Score can be evaluated using Scikit library functions. 
+I obtained an accuracy of ~0.55 with the SVM constants given in code. 
+As a logical next step, I plan to train the dataset using a Convolutional Neural Network and obtain classifcation results.
