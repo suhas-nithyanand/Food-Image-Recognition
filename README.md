@@ -34,12 +34,14 @@ output.txt (empty text file where extracted image vectors will be stored) as arg
 Change all the paths relative to your caffe installations.
 
 Step4:
+
 Now install Scikit learn python library in your system.
 Now we have separate the training and test dataset. 
 An important step here is to randomize the data, so that we have almost equal distributions of all classes in the test and training dataset.
 For my experiment, I have split my training and test data in the ratio 90:10. But you could experiment with other ratios.
 
 Step5:
+
 Although, I didn't spend a lot of time tuning the SVM constants, It's an important step to get good accuracy.
 Finally we can evaluate the prediction by comparing it with the output.
 Accuracy and F-Score can be evaluated using Scikit library functions. 
